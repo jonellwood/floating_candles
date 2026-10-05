@@ -1,23 +1,17 @@
-# Hogwarts Floating Candles
+# Floating Candles
 
 Standalone Asuna / Luanti mod. Two ivory candles with animated flames,
 maximum node light, no holder, no support requirement and no fuel consumption.
-The existing Hogwarts Beams mod does not need to be replaced or changed.
 
 ## Install
 
 1. Quit your world.
-2. Unzip `hogwarts_candles.zip`.
-3. Put the folder `hogwarts_candles` inside your Luanti user data `mods` folder.
-   The final path must end in `mods/hogwarts_candles/mod.conf`.
+2. Unzip `floating_candles.zip`.
+3. Put the folder `floating_candles` inside your Luanti user data `mods` folder.
+   The final path must end in `mods/floating_candles/mod.conf`.
 4. Select your Asuna world and open **Select mods / Configure**.
-5. Enable `hogwarts_candles`, then start the world.
-6. In Creative inventory, search **Hogwarts Floating Candle**.
-
-Use the same mods directory where you installed `hogwarts_beams`. On many Mac
-installations it is `~/Library/Application Support/minetest/mods/`; if your
-installation uses another data directory, keep using its existing mods folder.
-This is a regular world/server mod, not a client-side mod.
+5. Enable `floating_candles`, then start the world.
+6. In Creative inventory, search **Floating Candle**.
 
 ## Place candles
 
@@ -64,8 +58,8 @@ colored orange light just because the flame texture is orange.
 With the `give` privilege, enter these chat commands:
 
 ```
-/giveme hogwarts_candles:candle_tall 99
-/giveme hogwarts_candles:candle_short 99
+/giveme floating_candles:candle_tall 99
+/giveme floating_candles:candle_short 99
 ```
 
 The two sizes can be converted into each other one-for-one in a crafting grid.
