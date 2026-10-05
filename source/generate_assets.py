@@ -17,7 +17,7 @@ for x,l in [(7,17),(23,9),(40,24),(53,13)]:
     d.ellipse((x-1,l-2,x+1,l+2),fill=(255,241,207,255))
 # A tiny dark texture patch supplies the wick without another material.
 d.rectangle((0,58,5,63),fill=(39,29,20,255))
-im.save(root/'textures/hogwarts_candles_wax.png')
+im.save(root/'textures/floating_candles_wax.png')
 strip=Image.new('RGBA',(32,256))
 for i in range(8):
     f=Image.new('RGBA',(32,32));dr=ImageDraw.Draw(f)
@@ -26,13 +26,13 @@ for i in range(8):
     dr.polygon([(16+shift,8),(19,16),(20,22),(18,27),(14,28),(11,23),(13,17)],fill=(255,199,55,255))
     dr.polygon([(16,17),(18,23),(17,28),(14,28),(13,24)],fill=(255,249,187,255))
     strip.paste(f,(0,i*32))
-strip.save(root/'textures/hogwarts_candles_flame.png')
+strip.save(root/'textures/floating_candles_flame.png')
 # One animated atlas avoids OBJ material-order differences between engines.
 atlas=Image.new('RGBA',(64,64*8))
 for i in range(8):
     atlas.paste(im.resize((32,32)),(0,i*64))
     atlas.paste(strip.crop((0,i*32,32,(i+1)*32)),(32,i*64))
-atlas.save(root/'textures/hogwarts_candles_atlas.png')
+atlas.save(root/'textures/floating_candles_atlas.png')
 
 for size,bottom in [('tall',-.46),('short',-.16)]:
     lines=['# Original candle mesh. Single animated atlas: stable wax left, flame right.']
@@ -65,5 +65,5 @@ for size,bottom in [('tall',-.46),('short',-.16)]:
     # Two crossed, double-sided planes. Pixel flame fills only their center.
     for points in [[(-.125,.255,0),(.125,.255,0),(.125,.495,0),(-.125,.495,0)],[(0,.255,-.125),(0,.255,.125),(0,.495,.125),(0,.495,-.125)]]:
         face(points,[(0,0),(1,0),(1,1),(0,1)])
-    (root/'models'/f'hogwarts_candles_{size}.obj').write_text('\n'.join(lines)+'\n')
+    (root/'models'/f'floating_candles_{size}.obj').write_text('\n'.join(lines)+'\n')
 print('Generated 2 meshes, wax texture and 8-frame flame strip.')

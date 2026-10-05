@@ -4,7 +4,7 @@ local mod = mt.get_current_modname()
 local maximum_light = mt.LIGHT_MAX or 14
 
 local function message(player, text)
-    mt.chat_send_player(player:get_player_name(), "[Hogwarts Candles] " .. text)
+    mt.chat_send_player(player:get_player_name(), "[Floating Candles] " .. text)
 end
 local function place_in_air(itemstack, player)
     if not player or not player:is_player() then return itemstack end
@@ -40,16 +40,16 @@ end
 for _,size in ipairs({"tall","short"}) do
     local bottom = size=="tall" and -0.46 or -0.16
     mt.register_node(mod..":candle_"..size, {
-        description="Hogwarts Floating Candle ("..(size=="tall" and "Tall" or "Short")..")\nMaximum light; no fuel or support required\nRight-click clear air: place four blocks ahead",
-        drawtype="mesh",mesh="hogwarts_candles_"..size..".obj",
-        tiles={{name="hogwarts_candles_atlas.png",
+        description="Floating Candle ("..(size=="tall" and "Tall" or "Short")..")\nMaximum light; no fuel or support required\nRight-click clear air: place four blocks ahead",
+        drawtype="mesh",mesh="floating_candles_"..size..".obj",
+        tiles={{name="floating_candles_atlas.png",
                 animation={type="vertical_frames",aspect_w=64,aspect_h=64,length=0.8},
                 backface_culling=false}},
         use_texture_alpha="clip",
         paramtype="light",light_source=maximum_light,
         sunlight_propagates=true,walkable=false,pointable=true,
         buildable_to=false,is_ground_content=false,stack_max=99,
-        groups={dig_immediate=3,hogwarts_candle=1},
+        groups={dig_immediate=3,floating_candle=1},
         -- No attached_node / falling_node groups: persists without a support.
         selection_box={type="fixed",fixed={-0.1,bottom,-0.1,0.1,0.5,0.1}},
         collision_box={type="fixed",fixed={-0.07,bottom,-0.07,0.07,0.24,0.07}},

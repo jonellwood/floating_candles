@@ -1,97 +1,42 @@
 # Floating Candles
 
-Standalone Asuna / Luanti mod. Two ivory candles with animated flames,
-maximum node light, no holder, no support requirement and no fuel consumption.
+Bright ivory candles that stay suspended in the air. Light halls, castles and
+other builds without visible supports or fuel.
 
-## Install
+## Features
 
-1. Quit your world.
-2. Unzip `floating_candles.zip`.
-3. Put the folder `floating_candles` inside your Luanti user data `mods` folder.
-   The final path must end in `mods/floating_candles/mod.conf`.
-4. Select your Asuna world and open **Select mods / Configure**.
-5. Enable `floating_candles`, then start the world.
-6. In Creative inventory, search **Floating Candle**.
+- Tall and short candles with original mesh models and animated flames.
+- Light level **14**, the maximum normal node light.
+- No support, fuel or falling behavior.
+- Direct placement in empty air.
+- Decorative flames that do not spread fire or damage players.
+- Players can walk through candles; stacks hold up to 99 items.
 
-## Place candles
+## Usage
 
-### In empty air (quickest)
+Search Creative inventory for **Floating Candle**. Hold a candle and right-click
+while aiming at empty air to place it approximately four blocks in front of your
+eyes. The target must be loaded, empty and unprotected.
 
-Hold a candle, fly to the desired area and **right-click while aiming at empty
-air**. It places a candle at the nearest grid cell approximately **four blocks
-in front of your eyes**. Aim where you want the candle, rather than at an
-existing block. If you aim at a block within reach, ordinary node placement
-applies instead. Move/aim differently to scatter them at different heights.
+Normal placement against blocks also works. Candles remain upright and stay in
+place after their support is removed. Dig a candle to remove it.
 
-The target must be loaded, empty air and unprotected. The mod does not replace
-blocks, water, plants, existing candles or beams when placing directly in air.
-The player must have the `interact` privilege. Coordinates snap to the block
-grid, so the exact distance varies slightly with rounding.
+Light fades with distance, so spread candles through large rooms and at different
+heights.
 
-### With temporary blocks
+## Crafting
 
-Place a temporary block, place the candle on top, and remove the block.
-It stays suspended. Candles always stand upright, even when placed against
-a side or ceiling. They can also be used as table candles.
+Convert tall and short candles into each other one-for-one in a crafting grid.
+There is no base survival recipe; obtain candles through Creative inventory or
+`/giveme floating_candles:candle_tall 99` with the `give` privilege.
 
-## Brightness and appearance
+## Compatibility
 
-- Both Tall and Short versions emit **light level 14** (`minetest.LIGHT_MAX`),
-  the maximum normal node light supported by Luanti.
-- They remain lit permanently, with an eight-frame animated flame.
-- The light level is steady. Only the flame texture flickers.
-- They have no falling or attached-to-support behavior.
-- Players can move through them. Point at the wax/flame area and dig to remove.
-- The flame is decorative and deals no damage; these candles do not register
-  fire-spreading behavior.
-- A candle stack holds up to 99 items. Creative placement does not consume it;
-  survival placement consumes one.
+Requires Luanti 5.4 or later. Designed for Asuna, with no required mod
+dependencies. Candles are persistent world nodes. Keep the mod enabled in worlds
+that use them.
 
-Maximum light is not unlimited range. Light fades with distance and walls/roof
-blocks occlude it. For a large hall, distribute candles over the tables and
-between the trusses at several heights. A candle near the ceiling alone will
-not floodlight a floor far below it. Ordinary node lighting does not add
-colored orange light just because the flame texture is orange.
+## License
 
-## Get a full stack
-
-With the `give` privilege, enter these chat commands:
-
-```
-/giveme floating_candles:candle_tall 99
-/giveme floating_candles:candle_short 99
-```
-
-The two sizes can be converted into each other one-for-one in a crafting grid.
-There is no base survival crafting recipe: this mod is intended for your
-Creative castle build and does not depend on Asuna-specific wax or torch IDs.
-
-## Compatibility and validation
-
-Targets Luanti / Minetest 5.4+ with no required mods. All textures and meshes
-are original; see LICENSE.txt. The mod uses ordinary persistent world nodes,
-so candles do not rely on temporary entities or recurring timers.
-
-Lua syntax and mocked-API behavior checks passed for both candle types:
-maximum light, absence of support/falling groups, direct-air placement,
-negative coordinates, survival and Creative consumption, protection, interact
-privilege, blocked/unloaded targets and size-conversion recipes. Mesh extents,
-UVs and animation image dimensions were also checked.
-
-A live Asuna rendering test was not available here. Place one candle in a dark
-area, remove any scaffolding, and reload the world to check appearance and
-persistence before filling the entire hall. Keep the mod enabled after using
-its candles, or the world will show unknown nodes where they were placed.
-
-## Included source
-
-- init.lua — node definitions and safe air-placement control.
-- models/ — upright candle geometry.
-- textures/ — wax, flame strip and combined animation atlas.
-- source/generate_assets.py — reproducible assets, requires Python + Pillow.
-- source/test_mod.lua — mocked behavior checks, run from the mod folder with
-  `texlua source/test_mod.lua .` (Lua 5.3) or another compatible Lua interpreter.
-
-References:
-https://api.luanti.org/definition-tables/
-https://api.luanti.org/groups/
+Code, textures and models are MIT licensed. Asset generators and behavior tests
+are included in `source/`.

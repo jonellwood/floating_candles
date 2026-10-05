@@ -1,10 +1,10 @@
-local path=arg[1] or 'hogwarts_candles'
+local path=arg[1] or 'floating_candles'
 local nodes,crafts,world,messages={}, {}, {}, {}
 local consume=0
 local protected=false;local creative=false;local interact=true;local loaded=true
 minetest={LIGHT_MAX=14}
 local mt=minetest
-function mt.get_current_modname()return 'hogwarts_candles'end
+function mt.get_current_modname()return 'floating_candles'end
 function mt.register_node(n,d)nodes[n]=d end
 function mt.register_craft(d)crafts[#crafts+1]=d end
 function mt.chat_send_player(n,s)messages[#messages+1]=s end
